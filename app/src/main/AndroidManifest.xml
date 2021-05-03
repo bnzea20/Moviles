@@ -18,7 +18,7 @@
         <activity android:name="com.interfaces.pokedex.ActivityCarga" />
         <activity android:name="com.interfaces.pokedex.Pantalla4" />
         <activity android:name="com.interfaces.pokedex.pantalla3" />
-        <activity android:name="com.interfaces.pokedex.pantalla2" />
+        <activity android:name="com.interfaces.pokedex.IniciarSesion" />
         <activity android:name="com.interfaces.pokedex.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
