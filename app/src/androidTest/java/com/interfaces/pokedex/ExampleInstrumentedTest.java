@@ -1,4 +1,4 @@
-package com.example.miprimerapp;
+package com.interfaces.pokedex;
 
 import android.content.Context;
 

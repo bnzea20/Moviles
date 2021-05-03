@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.miprimerapp">
-
+    package="com.interfaces.pokedex">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,15 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiPrimerApp">
         <activity
-            android:name=".Navegacion"
+            android:name="com.interfaces.pokedex.Navegacion"
             android:label="@string/title_activity_navegacion"
             android:theme="@style/Theme.MiPrimerApp.NoActionBar"></activity>
-        <activity android:name=".Informacion" />
-        <activity android:name=".ActivityCarga" />
-        <activity android:name=".Pantalla4" />
-        <activity android:name=".pantalla3" />
-        <activity android:name=".pantalla2" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.interfaces.pokedex.Informacion" />
+        <activity android:name="com.interfaces.pokedex.ActivityCarga" />
+        <activity android:name="com.interfaces.pokedex.Pantalla4" />
+        <activity android:name="com.interfaces.pokedex.pantalla3" />
+        <activity android:name="com.interfaces.pokedex.pantalla2" />
+        <activity android:name="com.interfaces.pokedex.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

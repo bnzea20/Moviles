@@ -1,4 +1,4 @@
-package com.example.miprimerapp.ui.gallery;
+package com.interfaces.pokedex.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

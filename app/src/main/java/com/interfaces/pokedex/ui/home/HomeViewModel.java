@@ -1,4 +1,4 @@
-package com.example.miprimerapp.ui.home;
+package com.interfaces.pokedex.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
