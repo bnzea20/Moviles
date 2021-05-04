@@ -9,16 +9,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MiPrimerApp">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+
         <activity
             android:name="com.interfaces.pokedex.Navegacion"
             android:label="@string/title_activity_navegacion"
-            android:theme="@style/Theme.MiPrimerApp.NoActionBar"></activity>
+            ></activity>
         <activity android:name="com.interfaces.pokedex.Informacion" />
         <activity android:name="com.interfaces.pokedex.ActivityCarga" />
-        <activity android:name="com.interfaces.pokedex.Pantalla4" />
-        <activity android:name="com.interfaces.pokedex.pantalla3" />
-        <activity android:name="com.interfaces.pokedex.IniciarSesion" />
+        <activity android:name="com.interfaces.pokedex.MenuPrincipal" />
+        <activity android:name="com.interfaces.pokedex.InicioSesion" />
+        <activity android:name="com.interfaces.pokedex.Registro" />
         <activity android:name="com.interfaces.pokedex.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

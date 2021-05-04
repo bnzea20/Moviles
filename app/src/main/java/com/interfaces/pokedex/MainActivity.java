@@ -14,11 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void Siguiente(View view){
-        Intent siguiente1 =new Intent(this, IniciarSesion.class );
+        Intent siguiente1 =new Intent(this, Registro.class );
         startActivity(siguiente1);
     }
     public void Siguiente2(View view){
-        Intent siguiente2 =new Intent(this,pantalla3.class );
+        Intent siguiente2 =new Intent(this, InicioSesion.class );
         startActivity(siguiente2);
     }
     public void Siguiente3(View view){

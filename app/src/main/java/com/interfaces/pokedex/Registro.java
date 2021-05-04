@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class IniciarSesion extends AppCompatActivity {
+public class Registro extends AppCompatActivity {
     private ProgressBar progressBar;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
@@ -34,7 +34,8 @@ public class IniciarSesion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_sesion);
+        setContentView(R.layout.activity_registro);
+        progressBar= (ProgressBar) findViewById(R.id.progress);
         //Autenticación con Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -44,7 +45,7 @@ public class IniciarSesion extends AppCompatActivity {
                 //Pregunta si ya existe un usuario logueado
                 if (user != null) {
                     irSiguiente();
-                    IniciarSesion.this.finish();
+                    Registro.this.finish();
                 }
             }
         };
@@ -68,10 +69,7 @@ public class IniciarSesion extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
-    public void Siguiente(View view){
-        Intent siguiente1 =new Intent(this,MainActivity.class );
-        startActivity(siguiente1);
-    }
+
     @Override
     protected void onStart() {
         firebaseAuth.addAuthStateListener(firebaseAuthListener);
@@ -137,7 +135,7 @@ public class IniciarSesion extends AppCompatActivity {
                 });
     }
     public void irSiguiente(){
-        Intent i = new Intent(IniciarSesion.this,pantalla3.class);
+        Intent i = new Intent(Registro.this, MenuPrincipal.class);
         startActivity(i);
     }
 
