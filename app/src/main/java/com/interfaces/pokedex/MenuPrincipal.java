@@ -14,12 +14,21 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MenuPrincipal extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FloatingActionButton botonFlotante;
+    private Button btnHabilidades;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         botonFlotante=(FloatingActionButton) findViewById(R.id.fab);
         firebaseAuth = FirebaseAuth.getInstance();
+        btnHabilidades= (Button) findViewById(R.id.buttonHabilidades);
+        btnHabilidades.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent i = new Intent(MenuPrincipal.this, HabilidadesPokemon.class);
+                startActivity(i);
+            }
+        });
         botonFlotante.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {

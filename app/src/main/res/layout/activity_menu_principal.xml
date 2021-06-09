@@ -7,6 +7,18 @@
     android:background="@drawable/pokedex"
     tools:context=".MenuPrincipal">
 
+    <Button
+        android:id="@+id/buttonHabilidades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="316dp"
+        android:onClick="Siguiente3"
+        android:text="Ver habilidades de Pokemons"
+        app:backgroundTint="#E91E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -19,19 +31,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="341dp"
-        android:layout_height="383dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.39"
-        app:srcCompat="@drawable/ca" />
 
     <ImageView
         android:id="@+id/imageView5"
