@@ -1,12 +1,17 @@
 package com.interfaces.pokedex;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,6 +30,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class InicioSesion extends AppCompatActivity {
+    private EditText TextEmail;
+    private EditText TextPassword;
+    private Button btnIniciar;
+    private ProgressDialog progressDialog;
     private ProgressBar progressBar;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
@@ -35,14 +44,25 @@ public class InicioSesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
-
+        TextEmail = (EditText) findViewById(R.id.correoIniciar);
+        TextPassword = (EditText) findViewById(R.id.claveIniciar);
+        btnIniciar = (Button) findViewById(R.id.btnIniciar);
+        progressDialog=new ProgressDialog(this);
         progressBar= (ProgressBar) findViewById(R.id.progress);
         //Autenticación con Firebase
         firebaseAuth = FirebaseAuth.getInstance();
+        btnIniciar.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                String email=TextEmail.getText().toString().trim();
+                String password=TextPassword.getText().toString().trim();
+                iniciarSesionCorreo(email,password);
+            }
+        });
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@Nullable FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+                FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
                 //Pregunta si ya existe un usuario logueado
                 if (user != null) {
                     irSiguiente();
@@ -90,7 +110,34 @@ public class InicioSesion extends AppCompatActivity {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+    private void iniciarSesionCorreo(String email,String password){
+        //Se obtiene el email y contraseña desde los textbox
+        //Se veriffican que no existan campos vacios
+        if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Se requieren llenar todos los campos", Toast.LENGTH_LONG).show();
+            return;
+        }
+        progressDialog.setMessage("Iniciando sesión en Pokédex...");
+        progressDialog.show();
 
+        //Intenta iniciar sesion con el correo y contraseña provistos
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Inicio de sesion exitoso
+                            Toast.makeText(InicioSesion.this,"Inicio de sesión exitoso", Toast.LENGTH_LONG).show();
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            irSiguiente();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(InicioSesion.this,"No se ha podido iniciar sesión: "+task.getException(), Toast.LENGTH_LONG).show();
+                        }
+                        progressDialog.dismiss();
+                    }
+                });
+    }
 
 
     @Override
@@ -135,9 +182,14 @@ public class InicioSesion extends AppCompatActivity {
                     }
                 });
     }
-    public void irSiguiente(){
+    private void irSiguiente(){
         Intent i = new Intent(InicioSesion.this, MenuPrincipal.class);
         startActivity(i);
+    }
+    public void irRegistro(View view){
+        Intent i = new Intent(InicioSesion.this, Registro.class);
+        startActivity(i);
+        finish();
     }
 
 }

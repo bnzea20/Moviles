@@ -8,28 +8,28 @@
     tools:context=".InicioSesion">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnIniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Iniciar Sesion"
+        android:text="Iniciar Sesión"
         app:backgroundTint="#E91E63"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/claveIniciar" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/claveIniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Contraseña"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/correoIniciar" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Iniciar Sesion"
+        android:text="Iniciar Sesión"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -68,17 +68,17 @@
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/correoIniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Usuario"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        android:hint="Correo electronico"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/clave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
+        android:onClick="irRegistro"
         android:text="No tienes cuenta? Registrate"
+        android:textColor="#E91E63"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

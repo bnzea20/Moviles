@@ -1,12 +1,18 @@
 package com.interfaces.pokedex;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,7 +31,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Registro extends AppCompatActivity {
+    private EditText TextEmail;
+    private EditText TextPassword;
+    private Button btnRegistrar;
+    private CheckBox terminos;
     private ProgressBar progressBar;
+    private ProgressDialog progressDialog;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
     private int RC_SIGN_IN=0;
@@ -36,18 +47,32 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
         progressBar= (ProgressBar) findViewById(R.id.progress);
+        TextEmail = (EditText) findViewById(R.id.correo);
+        TextPassword = (EditText) findViewById(R.id.clave);
+        btnRegistrar = (Button) findViewById(R.id.registrarseBtn);
+        terminos = (CheckBox) findViewById(R.id.checkBox2);
+        progressDialog=new ProgressDialog(this);
         //Autenticación con Firebase
         firebaseAuth = FirebaseAuth.getInstance();
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                String email=TextEmail.getText().toString().trim();
+                String password=TextPassword.getText().toString().trim();
+                registrarUsuario(email,password);
+            }
+            });
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@Nullable FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+                FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
                 //Pregunta si ya existe un usuario logueado
                 if (user != null) {
                     irSiguiente();
                     Registro.this.finish();
                 }
             }
+
         };
 
 
@@ -69,7 +94,34 @@ public class Registro extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
+    private void registrarUsuario(String email,String password){
+        //Se obtiene el email y contraseña desde los textbox
+        //Se veriffican que no existan campos vacios
+        if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Se requieren llenar todos los campos", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(!terminos.isChecked()){
+            Toast.makeText(this,"Se requiere aceptar los terminos y condiciones para usar Pokédex", Toast.LENGTH_LONG).show();
+            return;
+        }
+        progressDialog.setMessage("Realizando registro en Pokédex...");
+        progressDialog.show();
 
+        //Crear un nuevo usuario con correo
+        firebaseAuth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(Registro.this,"Se ha registrado con su correo exitosamente en la Pokédex", Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(Registro.this,"No se ha podido registrar con correo"+task.getException(), Toast.LENGTH_LONG).show();
+                        }
+                        progressDialog.dismiss();
+                    }
+                });
+    }
     @Override
     protected void onStart() {
         firebaseAuth.addAuthStateListener(firebaseAuthListener);
@@ -134,9 +186,14 @@ public class Registro extends AppCompatActivity {
                     }
                 });
     }
-    public void irSiguiente(){
+    private void irSiguiente(){
         Intent i = new Intent(Registro.this, MenuPrincipal.class);
         startActivity(i);
+    }
+    public void irIniciar(View view){
+        Intent i = new Intent(Registro.this, InicioSesion.class);
+        startActivity(i);
+        finish();
     }
 
 
