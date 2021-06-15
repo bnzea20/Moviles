@@ -1,7 +1,5 @@
 package com.interfaces.pokedex;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,8 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuPrincipal extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -25,7 +25,7 @@ public class MenuPrincipal extends AppCompatActivity {
         btnHabilidades.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Intent i = new Intent(MenuPrincipal.this, HabilidadesPokemon.class);
+                Intent i = new Intent(MenuPrincipal.this, PokemonActivity.class);
                 startActivity(i);
             }
         });
@@ -41,7 +41,7 @@ public class MenuPrincipal extends AppCompatActivity {
         });
     }
     public void Siguiente(View view){
-        Intent siguiente1 =new Intent(this,MainActivity.class );
+        Intent siguiente1 =new Intent(this, MainActivity.class );
         startActivity(siguiente1);
     }
     @Override

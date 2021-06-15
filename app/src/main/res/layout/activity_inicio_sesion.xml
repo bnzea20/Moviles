@@ -89,6 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
+        android:onClick="irRegistro"
         android:text="No tienes cuenta? Registrate"
         android:textColor="#E91E63"
         android:textStyle="bold"

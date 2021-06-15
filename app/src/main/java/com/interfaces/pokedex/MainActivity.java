@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(siguiente2);
     }
     public void Siguiente3(View view){
-        Intent siguiente3 =new Intent(this,Navegacion.class );
+        Intent siguiente3 =new Intent(this,PokemonActivity.class );
         startActivity(siguiente3);
     }
 }

@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="6dp"
+    app:cardBackgroundColor="#73E0FF">
 
-    <ImageView
-        android:id="@+id/fotoImageView"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:id="@+id/nombreTextView"
+    <LinearLayout
+        android:id="@+id/PokemonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/app_name"
-        android:textAllCaps="true"
-        android:textColor="@color/black"/>
+        android:background="#FFCE00"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/NombrePokemon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="POKEMON"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,9 +1,5 @@
 package com.interfaces.pokedex;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +24,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class InicioSesion extends AppCompatActivity {
     private EditText TextEmail;
@@ -110,10 +110,10 @@ public class InicioSesion extends AppCompatActivity {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-    private void iniciarSesionCorreo(String email,String password){
+    private void iniciarSesionCorreo(String email, String password){
         //Se obtiene el email y contraseña desde los textbox
         //Se veriffican que no existan campos vacios
-        if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password)){
+        if(TextUtils.isEmpty(email)|| TextUtils.isEmpty(password)){
             Toast.makeText(this,"Se requieren llenar todos los campos", Toast.LENGTH_LONG).show();
             return;
         }
@@ -177,7 +177,7 @@ public class InicioSesion extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Autenticación fallida", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(getApplicationContext(),"Acceso correcto",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Acceso correcto", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#73E0FF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/ivPokeSprite"
+        android:layout_width="wrap_content"
+        android:layout_height="105dp"
+        android:layout_margin="60dp"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tvPokeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_margin="5dp"
+        android:text="Cargando Pokémon..."
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPokeHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Cargando..."
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvPokeWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Cargando..."
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvPokeXp"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:text="Cargando..."
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Naturalezas:"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvPokeTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="Cargando..."
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Lista de Habilidades:"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvPokeAbilities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Cargando..."
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+
+</LinearLayout>
