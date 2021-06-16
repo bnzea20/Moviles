@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#73E0FF">
+
+    <Button
+        android:id="@+id/AgregarPokemonEquipo"
+        android:layout_width="195dp"
+        android:layout_height="186dp"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_add_circle_outline_50"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="623dp"
+        tools:layout_editor_absoluteY="1064dp"
+        android:visibility="invisible"
+        />
+
+    <ListView
+        android:id="@+id/listEquipoPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
