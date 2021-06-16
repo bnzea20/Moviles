@@ -27,20 +27,33 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/tvPokeAviso"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="¡Crea un usuario para acceder a más funcionalidades!"
+        android:textColor="#E91E63"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/tvPokeHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:text="Cargando..."
-        android:textSize="15sp" />
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tvPokeWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:text="Cargando..."
-        android:textSize="15sp" />
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tvPokeXp"
@@ -48,14 +61,17 @@
         android:layout_height="63dp"
         android:text="Cargando..."
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:visibility="gone" />
 
     <TextView
+        android:id="@+id/tvPokeNaturalezas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Naturalezas:"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tvPokeTypes"
@@ -64,23 +80,35 @@
         android:gravity="center"
         android:text="Cargando..."
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:visibility="gone" />
 
     <TextView
+        android:id="@+id/tvPokeHabilidades"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="Lista de Habilidades:"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tvPokeAbilities"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="51dp"
         android:gravity="center"
         android:text="Cargando..."
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/agregarPokemon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E91E63"
+        android:text="Agregar a equipo"
+        android:visibility="gone" />
 
 
 </LinearLayout>

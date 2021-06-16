@@ -3,6 +3,7 @@ package com.interfaces.pokedex;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

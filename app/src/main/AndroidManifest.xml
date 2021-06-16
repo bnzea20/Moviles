@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.interfaces.pokedex">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
-
-
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Perfil"></activity>
         <activity
-            android:name="com.interfaces.pokedex.Navegacion"
-            android:label="@string/title_activity_navegacion"
-            ></activity>
-        <activity android:name="com.interfaces.pokedex.Informacion" />
-        <activity android:name="com.interfaces.pokedex.ActivityCarga" />
-        <activity android:name="com.interfaces.pokedex.PokemonActivity" />
-        <activity android:name="com.interfaces.pokedex.MenuPrincipal" />
-        <activity android:name="com.interfaces.pokedex.InicioSesion" />
-        <activity android:name="com.interfaces.pokedex.Registro" />
-        <activity android:name="com.interfaces.pokedex.MainActivity">
+            android:name=".Navegacion"
+            android:label="@string/title_activity_navegacion" />
+        <activity android:name=".Informacion" />
+        <activity android:name=".ActivityCarga" />
+        <activity android:name=".PokemonActivity" />
+        <activity android:name=".MenuPrincipal" />
+        <activity android:name=".InicioSesion" />
+        <activity android:name=".Registro" />
+        <activity android:name=".EquipoPokemon" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,5 +30,8 @@
         </activity>
         <activity android:name=".PokemonDetailActivity" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

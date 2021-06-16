@@ -114,7 +114,7 @@ public class Registro extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(Registro.this,"Se ha registrado con su correo exitosamente en la Pokédex", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Registro.this,"Se ha registrado con su correo "+email+" exitosamente en la Pokédex", Toast.LENGTH_LONG).show();
                         }else{
                             Toast.makeText(Registro.this,"No se ha podido registrar con correo"+task.getException(), Toast.LENGTH_LONG).show();
                         }

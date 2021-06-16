@@ -14,16 +14,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFCE00"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:weightSum="100"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/NombrePokemon"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_weight="90"
             android:text="POKEMON"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/AgregarPokemon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="13"
+            android:background="#00BCD4"
+            android:text="AGREGAR A EQUIPO"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

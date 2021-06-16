@@ -8,13 +8,14 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.interfaces.pokedex.utils.Constante;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuPrincipal extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FloatingActionButton botonFlotante;
-    private Button btnHabilidades;
+    private Button btnHabilidades, btnEquipo, btnPerfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +23,29 @@ public class MenuPrincipal extends AppCompatActivity {
         botonFlotante=(FloatingActionButton) findViewById(R.id.fab);
         firebaseAuth = FirebaseAuth.getInstance();
         btnHabilidades= (Button) findViewById(R.id.buttonHabilidades);
+        btnEquipo=(Button) findViewById(R.id.buttonEquipo);
+        btnPerfil = (Button) findViewById(R.id.buttonPerfil);
+
+        btnEquipo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(MenuPrincipal.this, EquipoPokemon.class);
+                startActivity(i);
+            }
+        });
+
+        btnPerfil.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(MenuPrincipal.this, Perfil.class);
+                startActivity(i);
+            }
+        });
+
         btnHabilidades.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 Intent i = new Intent(MenuPrincipal.this, PokemonActivity.class);
                 startActivity(i);
+
             }
         });
         botonFlotante.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +59,9 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
     }
+
+
+
     public void Siguiente(View view){
         Intent siguiente1 =new Intent(this, MainActivity.class );
         startActivity(siguiente1);
